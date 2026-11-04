@@ -1,277 +1,738 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人生涯重大突破與成就博物館</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026個人里程碑展覽館 | Milestone Museum</title>
+  
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="container">
-            <span class="badge">成長歷程與關鍵突破展覽館</span>
-            <h1>記錄每一刻破繭而出的光芒</h1>
-            <p class="subtitle">「不論是微小的日常幸福，還是璀璨的人生蛻變，都值得被用心記錄與溫柔回顧。」</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-icon">🏆</span>
-                    <div class="stat-info">
-                        <span class="stat-number" id="total-count">12</span>
-                        <span class="stat-label">累積突破項目</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">📅</span>
-                    <div class="stat-info">
-                        <span class="stat-number">6</span>
-                        <span class="stat-label">橫跨月份</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">🏷️</span>
-                    <div class="stat-info">
-                        <span class="stat-number" id="category-count">6</span>
-                        <span class="stat-label">核心領域主題</span>
-                    </div>
-                </div>
-            </div>
+  <!-- Header / Navigation (頂部導航欄) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-trophy"></i>
         </div>
-    </header>
-
-    <main class="container">
-        <section class="controls">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="搜尋成就標題、隨筆內文或標籤...">
-            </div>
-            
-            <div class="filter-group">
-                <span class="filter-label">🕒 時間維度：</span>
-                <div class="filter-buttons" id="time-filters">
-                    <button class="filter-btn active" data-time="all">全部突破</button>
-                    <button class="filter-btn" data-time="2026">2026 年</button>
-                </div>
-            </div>
-
-            <div class="filter-group">
-                <span class="filter-label"># 主題分類：</span>
-                <div class="filter-buttons" id="category-filters">
-                    <button class="filter-btn active" data-category="all">全部標籤</button>
-                    <button class="filter-btn" data-category="專業與認證">#專業與認證</button>
-                    <button class="filter-btn" data-category="職涯與實習">#職涯與實習</button>
-                    <button class="filter-btn" data-category="生活印記">#生活印記</button>
-                    <button class="filter-btn" data-category="個人成長">#個人成長</button>
-                    <button class="filter-btn" data-category="校園生活">#校園生活</button>
-                    <button class="filter-btn" data-category="社會服務">#社會服務</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="cards-grid" id="cards-container">
-            <!-- 1. 考汽車駕照 -->
-            <article class="milestone-card" data-time="2026" data-category="個人成長">
-                <div class="card-image">
-                    <img src="images/driving-license.jpg" alt="考汽車駕照" onerror="this.parentNode.classList.add('badge-bg','bg-gold'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🚗</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 2 月</span>
-                        <span class="tag">#個人成長</span>
-                    </div>
-                    <h3 class="card-title">駕照行動自由：終於考取屬於自己的駕照</h3>
-                    <p class="card-story">利用空檔報名駕訓班，認真練習倒車入庫與路上駕駛技巧。考試當天雖然緊張，但憑著練習的肌肉記憶順利過關，解鎖了獨自出行的自由度。</p>
-                    <div class="card-highlight">✨ 生活亮點：勇敢跨出舒適圈，掌握掌控方向盤的獨立感。</div>
-                </div>
-            </article>
-
-            <!-- 2. 永續發展測驗 -->
-            <article class="milestone-card" data-time="2026" data-category="專業與認證">
-                <div class="card-image">
-                    <img src="images/sustainability-cert.jpg" alt="永續發展測驗" onerror="this.parentNode.classList.add('badge-bg','bg-green'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🌱</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 4 月</span>
-                        <span class="tag">#專業與認證</span>
-                    </div>
-                    <h3 class="card-title">擁抱綠色浪潮：通過永續發展基礎能力測驗</h3>
-                    <p class="card-story">關注 ESG 與永續議題，撥出課餘時間系統化研讀相關規範與實務案例。順利通過測驗取得認證，為自己的專業知能增添綠色競爭力。</p>
-                    <div class="card-highlight">✨ 生活亮點：主動吸收新知，將永續理念融入未來視野。</div>
-                </div>
-            </article>
-
-            <!-- 3. 雲南壯遊 (對齊檔名：雲南.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="生活印記">
-                <div class="card-image">
-                    <img src="images/雲南.jpg" alt="雲南壯遊" onerror="this.parentNode.classList.add('badge-bg','bg-blue'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🏔️</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 5 月</span>
-                        <span class="tag">#生活印記</span>
-                    </div>
-                    <h3 class="card-title">高山峽谷間的壯遊：前往雲南留下的一生印記</h3>
-                    <p class="card-story">走出熟悉的校園環境，前往雲南高海拔地域進行自主考察。細細觀察多元民族文化與壯麗風景，體驗地道美味特色料理，感受天地的遼闊。</p>
-                    <div class="card-highlight">✨ 生活亮點：保持好奇與敬畏之心，每一次探索都在重塑自我。</div>
-                </div>
-            </article>
-
-            <!-- 4. 人生第一次實習 (對齊檔名：實習.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="職涯與實習">
-                <div class="card-image">
-                    <img src="images/實習.jpg" alt="人生第一次實習" onerror="this.parentNode.classList.add('badge-bg','bg-orange'); this.parentNode.innerHTML='<div class=\'badge-icon\'>💼</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 7 月</span>
-                        <span class="tag">#職涯與實習</span>
-                    </div>
-                    <h3 class="card-title">走出象牙塔：人生第一份實習的真實體驗</h3>
-                    <p class="card-story">開啟職場首秀，面對高節奏的商業環境與跨部門專案。從清理財務數據到獨立負責報表自動化分析，主動梳理流程，建立職場實戰信心。</p>
-                    <div class="card-highlight">✨ 生活亮點：將學術理論轉化為商業價值，學習團隊賦能。</div>
-                </div>
-            </article>
-
-            <!-- 5. 買盲盒 (對齊檔名：盲盒.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="生活印記">
-                <div class="card-image">
-                    <img src="images/盲盒.jpg" alt="買盲盒" onerror="this.parentNode.classList.add('badge-bg','bg-pink'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🎁</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 8 月</span>
-                        <span class="tag">#生活印記</span>
-                    </div>
-                    <h3 class="card-title">人生第一次拆盲盒：那份期待的開箱好心情</h3>
-                    <p class="card-story">路過店面被可愛的小公仔吸引，決定體驗一次拆盲盒的樂趣。抱著期待的心情隨機挑選，幸運抽中喜歡的角色，為日常帶來滿滿治癒感。</p>
-                    <div class="card-highlight">✨ 生活亮點：享受生活中的童趣小驚喜，生活需要儀式感。</div>
-                </div>
-            </article>
-
-            <!-- 6. 燙頭髮 -->
-            <article class="milestone-card" data-time="2026" data-category="生活印記">
-                <div class="card-image">
-                    <img src="images/new-haircut.jpg" alt="燙頭髮" onerror="this.parentNode.classList.add('badge-bg','bg-purple'); this.parentNode.innerHTML='<div class=\'badge-icon\'>💇</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 8 月</span>
-                        <span class="tag">#生活印記</span>
-                    </div>
-                    <h3 class="card-title">煥然一新：近年第一次換上喜歡的小小小捲髮</h3>
-                    <p class="card-story">想要嘗試新的形象，與髮型師認真討論後換了蓬鬆微捲的新髮型。鏡子前嶄新的自己讓人眼睛一亮，心情也跟著清爽煥然一新。</p>
-                    <div class="card-highlight">✨ 生活亮點：勇敢嘗試新風格，看見更多元自信的自己。</div>
-                </div>
-            </article>
-
-            <!-- 7. 越式餐廳 (對齊檔名：越式料理.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="生活印記">
-                <div class="card-image">
-                    <img src="images/越式料理.jpg" alt="越式餐廳" onerror="this.parentNode.classList.add('badge-bg','bg-yellow'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🍜</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 8 月</span>
-                        <span class="tag">#生活印記</span>
-                    </div>
-                    <h3 class="card-title">巷弄裡的小驚喜：連吃三個月的越式寶藏小館</h3>
-                    <p class="card-story">偶然在巷弄內發掘了一間地道溫馨的越式小店，清爽的牛肉河粉與美味春捲讓人一試成主顧，已經連續三個月每週定期去報到享用美饌。</p>
-                    <div class="card-highlight">✨ 生活亮點：用美食療癒日常，建立屬於自己的美好巷弄地圖。</div>
-                </div>
-            </article>
-
-            <!-- 8. 宜蘭班遊 (對齊檔名：班遊.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="校園生活">
-                <div class="card-image">
-                    <img src="images/班遊.jpg" alt="宜蘭班遊" onerror="this.parentNode.classList.add('badge-bg','bg-teal'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🚌</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 9 月</span>
-                        <span class="tag">#校園生活</span>
-                    </div>
-                    <h3 class="card-title">同窗共憩：宜蘭三天兩夜的歡笑青春</h3>
-                    <p class="card-story">與班上同學一起出發去宜蘭玩，三天兩夜裡聊天、看海、共享美食，充滿歡聲笑語。在美好的自然景緻中放下忙碌，加深了彼此的情誼。</p>
-                    <div class="card-highlight">✨ 生活亮點：珍惜學生時代的純粹時光，留下溫暖青春回憶。</div>
-                </div>
-            </article>
-
-            <!-- 9. 助教解題 -->
-            <article class="milestone-card" data-time="2026" data-category="專業與認證">
-                <div class="card-image">
-                    <img src="images/ta-accounting.jpg" alt="助教解題" onerror="this.parentNode.classList.add('badge-bg','bg-blue'); this.parentNode.innerHTML='<div class=\'badge-icon\'>✍️</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 10 月</span>
-                        <span class="tag">#專業與認證</span>
-                    </div>
-                    <h3 class="card-title">會計助教解題課：用熱心幫學弟妹解答難題</h3>
-                    <p class="card-story">擔任助教課講者，站在講台上為學弟妹梳理複雜的會計概念與題目邏輯。引導大家思考解題，獲得熱烈迴響，展現了良好的溝通與表達力。</p>
-                    <div class="card-highlight">✨ 生活亮點：教學相長，在傾囊相授中重新淬鍊自身的專業底蘊。</div>
-                </div>
-            </article>
-
-            <!-- 10. 惜食志工 (明確設定無照片，自動呈現質感向量徽章) -->
-            <article class="milestone-card" data-time="2026" data-category="社會服務">
-                <div class="card-image badge-bg bg-orange">
-                    <div class="badge-icon">🍲</div>
-                    <span class="badge-sparkle">✨</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 10 月</span>
-                        <span class="tag">#社會服務</span>
-                    </div>
-                    <h3 class="card-title">惜食傳愛：走入廚房實踐志工服務</h3>
-                    <p class="card-story">第一次走進惜食廚房，空氣裡飄著蔬菜和熱湯的香氣。切菜、分揀、裝盒，大家分工合作。那天做好的幾百份便當送到需要的人手中，傳遞樸實溫暖。</p>
-                    <div class="card-highlight">✨ 生活亮點：踏出去、動手做，就是最好的溫柔；給予的過程，自己也被溫暖了。</div>
-                </div>
-            </article>
-
-            <!-- 11. 多益金色證書 (無照片，自動呈現質感向量徽章) -->
-            <article class="milestone-card" data-time="2026" data-category="專業與認證">
-                <div class="card-image badge-bg bg-gold">
-                    <div class="badge-icon">🏅</div>
-                    <span class="badge-sparkle">✨</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 10 月</span>
-                        <span class="tag">#專業與認證</span>
-                    </div>
-                    <h3 class="card-title">外語實力躍進：順利取得多益金色證書</h3>
-                    <p class="card-story">在繁忙的課業與實習之間擠出時間備考，每天聽題、刷文章，把零碎的通勤時光都拿來複習。考試當天比預想的更從容，最後成績順利落在金色門檻。</p>
-                    <div class="card-highlight">✨ 生活亮點：小小累積終究會疊成意想不到的高度，日常的堅持不白費。</div>
-                </div>
-            </article>
-
-            <!-- 12. 事務所面試 (對齊檔名：事務所面試.jpg) -->
-            <article class="milestone-card" data-time="2026" data-category="職涯與實習">
-                <div class="card-image">
-                    <img src="images/事務所面試.jpg" alt="事務所面試" onerror="this.parentNode.classList.add('badge-bg','bg-purple'); this.parentNode.innerHTML='<div class=\'badge-icon\'>🏢</div><span class=\'badge-sparkle\'>✨</span>'">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="date">📅 2026 年 10 月</span>
-                        <span class="tag">#職涯與實習</span>
-                    </div>
-                    <h3 class="card-title">面試四家事務所：高強度專業甄選與求職大滿貫</h3>
-                    <p class="card-story">面對競爭激烈的校園徵選，深入準備各事務所背景與個案考題。在沉著應答與邏輯表達中獲得面試官一致肯定，順利取得多項職缺青睞。</p>
-                    <div class="card-highlight">✨ 生活亮點：充分準備是自信的泉源，傾聽與結構化表達能創造深層信任。</div>
-                </div>
-            </article>
-        </section>
-    </main>
-
-    <!-- 放大彈窗 (Modal Lightbox) -->
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-container">
-            <button class="modal-close" id="modal-close">&times;</button>
-            <div class="modal-body" id="modal-content"></div>
+        <div class="brand-text">
+          <h1 class="brand-title">Milestone Museum</h1>
+          <span class="brand-subtitle">2026個人里程碑展覽館</span>
         </div>
+      </div>
+      
+      <div class="header-actions">
+        <a href="#milestones" class="nav-link"><i class="fa-solid fa-timeline"></i> 里程碑</a>
+        <a href="AGENTS.md" class="nav-link" target="_blank"><i class="fa-solid fa-book"></i> 規範文件</a>
+        <button id="theme-toggle" class="btn-icon" aria-label="切換主題模式" title="切換溫馨明亮 / 恬淡晚霞模式">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <script src="js/main.js"></script>
+  <!-- Hero Section (主視覺區塊) -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-sparkles"></i> 記錄每一刻破繭而出的光芒
+      </div>
+      <h2 class="hero-title">2026個人里程碑展覽館</h2>
+      <p class="hero-motto">
+        「不論是微小的日常幸福，還是璀璨的人生蛻變，都值得被用心記錄與溫柔回顧。」
+      </p>
+
+      <!-- Achievement Stats Counter (成就統計計數器 - 3欄等寬居中美化) -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="stat-info">
+            <span class="stat-number" id="stat-total">12</span>
+            <span class="stat-label">累積突破項目</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="stat-info">
+            <span class="stat-number" id="stat-months">7</span>
+            <span class="stat-label">橫跨月份</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-tags"></i></div>
+          <div class="stat-info">
+            <span class="stat-number" id="stat-tags">6</span>
+            <span class="stat-label">核心領域主題</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="container main-content" id="milestones">
+    
+    <!-- Filter Bar (篩選與搜尋列) -->
+    <section class="filter-section">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="搜尋成就標題、隨筆內文、標籤或關鍵字..." aria-label="搜尋成就">
+        <button id="clear-search" class="clear-btn" style="display: none;" title="清除搜尋">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="filter-groups">
+        <!-- 狀態與年份篩選 (全數為 2026 年) -->
+        <div class="filter-group">
+          <span class="filter-group-label"><i class="fa-regular fa-clock"></i> 時間維度：</span>
+          <div class="filter-pills" id="time-filters">
+            <button class="filter-btn active" data-filter="all">全部突破</button>
+            <button class="filter-btn" data-filter="year-2026">2026 年</button>
+          </div>
+        </div>
+
+        <!-- 主題分類篩選 (6 大核心分類，單選模式 Single-select) -->
+        <div class="filter-group">
+          <span class="filter-group-label"><i class="fa-solid fa-hashtag"></i> 主題分類：</span>
+          <div class="filter-pills" id="tag-filters">
+            <button class="filter-btn" data-tag="#專業與認證">#專業與認證</button>
+            <button class="filter-btn" data-tag="#職涯與實習">#職涯與實習</button>
+            <button class="filter-btn" data-tag="#生活印記">#生活印記</button>
+            <button class="filter-btn" data-tag="#個人成長">#個人成長</button>
+            <button class="filter-btn" data-tag="#校園生活">#校園生活</button>
+            <button class="filter-btn" data-tag="#社會服務">#社會服務</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-status">
+        <span id="results-count">共顯示 12 項突破</span>
+        <button id="reset-filters" class="reset-link"><i class="fa-solid fa-rotate-left"></i> 重設所有條件</button>
+      </div>
+    </section>
+
+    <!-- Milestone Cards Section (12 項 2026 年度真實成就) -->
+    <section class="milestone-cards-wrapper">
+      <div class="milestone-grid" id="milestone-grid">
+
+        <!-- === 卡片 1: 2026-10 面試四家事務所 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-10" data-category="#職涯與實習" data-tags="#職涯與實習" tabindex="0">
+          <div class="card-image">
+            <img src="images/deloitte-interview.jpg" alt="面試四家事務所" loading="lazy" onerror="handleImageFallback(this, 'building-columns', '職涯與實習')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 10 月</span>
+              <span class="card-tag">#職涯與實習</span>
+            </div>
+            <h3 class="card-title">面試四家事務所：高強度甄選與求職大滿貫</h3>
+            <div class="card-description">
+              <p class="card-story">
+                研究所畢業前夕，迎戰最具挑戰性的四大會計師事務所校園徵選。連續好幾週密集穿梭於審計、稅務專業面試、合夥人面談及即席個案分析之間。出門前對著鏡子深呼吸、理平西裝領口，把平常練習的邏輯沈著有條理地娓娓道來。最終順利拿下四家指標事務所的錄取資格，給了自己最大的肯定。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">充分準備讓自己在關鍵時刻更沉著；真誠表達比刻意表演更能打動人心。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 2: 2026-10 取得多益金色證書 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-10" data-category="#專業與認證" data-tags="#專業與認證" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="多益金色證書插畫">
+              <defs>
+                <linearGradient id="bg-toeic" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFFBEB" />
+                  <stop offset="100%" stop-color="#FDE68A" />
+                </linearGradient>
+                <linearGradient id="gold-med" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FDE047" />
+                  <stop offset="50%" stop-color="#EAB308" />
+                  <stop offset="100%" stop-color="#CA8A04" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-toeic)"/>
+              <circle cx="200" cy="115" r="95" fill="#FEF08A" opacity="0.45"/>
+              <g opacity="0.6">
+                <path d="M40 50 Q50 40 65 55" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M340 50 Q350 40 365 55" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M50 180 Q65 170 80 185" stroke="#EF4444" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M330 180 Q345 170 360 185" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" fill="none"/>
+              </g>
+              <g transform="translate(145, 20)">
+                <path d="M30 0 L55 55 L35 90 L10 15 Z" fill="#DC2626"/>
+                <path d="M80 0 L55 55 L75 90 L100 15 Z" fill="#2563EB"/>
+                <circle cx="55" cy="110" r="56" fill="#A16207" opacity="0.2"/>
+                <circle cx="55" cy="106" r="54" fill="url(#gold-med)" stroke="#CA8A04" stroke-width="3"/>
+                <circle cx="55" cy="106" r="46" fill="#FACC15" stroke="#EAB308" stroke-width="2"/>
+                <path d="M22 105 Q22 80 35 68 Q38 75 32 88 Q28 98 32 110 Z" fill="#CA8A04"/>
+                <path d="M88 105 Q88 80 75 68 Q72 75 78 88 Q82 98 78 110 Z" fill="#CA8A04"/>
+                <polygon points="55,75 58,83 67,84 60,89 62,98 55,93 48,98 50,89 43,84 52,83" fill="#FFFFFF"/>
+                <text x="55" y="116" font-family="'Arial Black', Impact, sans-serif" font-size="14" font-weight="900" fill="#78350F" text-anchor="middle" letter-spacing="1">TOEIC</text>
+                <rect x="35" y="122" width="40" height="15" rx="4" fill="#78350F"/>
+                <text x="55" y="133" font-family="'Arial Black', sans-serif" font-size="10" font-weight="bold" fill="#FEF08A" text-anchor="middle">GOLD</text>
+              </g>
+              <polygon points="105,45 109,56 120,59 110,65 113,76 105,70 97,76 100,65 90,59 101,56" fill="#F59E0B"/>
+              <polygon points="295,45 299,56 310,59 300,65 303,76 295,70 287,76 290,65 280,59 291,56" fill="#F59E0B"/>
+              <polygon points="75,130 77,135 83,136 78,140 80,146 75,142 70,146 72,140 67,136 73,135" fill="#EAB308"/>
+              <polygon points="325,130 327,135 333,136 328,140 330,146 325,142 320,146 322,140 317,136 323,135" fill="#EAB308"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 10 月</span>
+              <span class="card-tag">#專業與認證</span>
+            </div>
+            <h3 class="card-title">外語實力躍進：順利取得多益金色證書</h3>
+            <div class="card-description">
+              <p class="card-story">
+                在繁忙的課業與實習之間擠出時間備考，每天聽題、刷文章，把零碎的通勤時光都拿來複習。考試當天比預想的更從容，最後成績順利突破門檻拿下金色證書，讓幾個月的努力有了具體而美好的回饋。有了這張證書，往後面對外語商務場合也多了幾分底氣。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">小小積累終究會疊成意想不到的高度，日常的堅持從不白費。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 3: 2026-10 到惜食廚房當志工 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-10" data-category="#社會服務" data-tags="#社會服務" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="惜食廚房志工徽章插畫">
+              <defs>
+                <linearGradient id="bg-charity-badge" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFF7ED" />
+                  <stop offset="100%" stop-color="#FED7AA" />
+                </linearGradient>
+                <linearGradient id="gold-pot" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FDBA74" />
+                  <stop offset="100%" stop-color="#EA580C" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-charity-badge)"/>
+              <circle cx="200" cy="115" r="92" fill="#FDE68A" opacity="0.38"/>
+              
+              <!-- 暖心小愛心與星光漂浮裝飾 -->
+              <path d="M255 45 Q260 36 268 39 Q276 34 280 43 Q282 51 268 62 Q253 51 255 45 Z" fill="#F43F5E" opacity="0.75"/>
+              <path d="M125 40 Q128 32 135 34 Q142 30 145 38 Q147 45 135 55 Q123 45 125 40 Z" fill="#FB923C" opacity="0.75"/>
+              <polygon points="90,70 93,79 102,81 94,86 96,95 89,90 82,95 84,86 77,81 86,79" fill="#F59E0B"/>
+              <polygon points="310,75 313,83 321,85 314,90 316,98 310,94 303,98 305,90 299,85 307,83" fill="#F59E0B"/>
+              <polygon points="70,150 72,156 78,157 73,161 75,167 70,163 65,167 67,161 62,157 68,156" fill="#F97316" opacity="0.8"/>
+              <polygon points="330,155 332,160 338,161 333,165 335,170 330,167 325,170 327,165 322,161 328,160" fill="#F97316" opacity="0.8"/>
+
+              <!-- 中央可愛向量徽章：主廚高帽 + 愛心熱湯鍋 + 志工圍裙勳章 -->
+              <g transform="translate(130, 25)">
+                <!-- 徽章外圈光環 -->
+                <circle cx="70" cy="95" r="62" fill="#FFFFFF" opacity="0.6"/>
+                <circle cx="70" cy="95" r="56" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
+
+                <!-- 志工愛心高帽 -->
+                <path d="M48 58 Q40 32 54 22 Q68 12 70 24 Q82 12 92 24 Q102 36 94 58 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2.5"/>
+                <rect x="50" y="54" width="40" height="9" rx="2" fill="#F1F5F9"/>
+                <path d="M66 56 Q68 53 71 54 Q74 53 75 56 Q75 59 71 62 Q66 59 66 56 Z" fill="#EF4444"/>
+
+                <!-- 溫暖高湯鍋本體 -->
+                <ellipse cx="70" cy="115" rx="36" ry="10" fill="#FED7AA"/>
+                <path d="M34 115 Q34 148 70 148 Q106 148 106 115 Z" fill="url(#gold-pot)" stroke="#C2410C" stroke-width="2"/>
+                <ellipse cx="70" cy="115" rx="32" ry="7" fill="#FEF08A"/>
+                
+                <!-- 鍋身白愛心 -->
+                <path d="M64 125 Q66 120 70 122 Q74 120 76 125 Q76 130 70 135 Q64 130 64 125 Z" fill="#FFFFFF"/>
+                
+                <!-- 兩側鍋耳 -->
+                <path d="M34 118 Q24 118 24 125 Q24 132 34 132" stroke="#9A3412" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M106 118 Q116 118 116 125 Q116 132 106 132" stroke="#9A3412" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+                <!-- 冉冉升起的心形熱氣 -->
+                <path d="M60 102 Q55 92 62 85" stroke="#FB923C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M70 100 Q78 90 72 82" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M80 102 Q85 93 80 86" stroke="#FB923C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+                <!-- 底部文字標籤 -->
+                <rect x="36" y="152" width="68" height="18" rx="6" fill="#EA580C"/>
+                <text x="70" y="165" font-family="'Arial Black', sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">惜食傳愛</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 10 月</span>
+              <span class="card-tag">#社會服務</span>
+            </div>
+            <h3 class="card-title">惜食傳愛：走入廚房實踐志願服務與社會回饋</h3>
+            <div class="card-description">
+              <p class="card-story">
+                第一次走進惜食廚房，空氣裡飄著蔬菜和熱湯的純樸香氣。切菜、分揀、裝盒，大家分工合作，每個動作都帶著實實在在的溫度。那天做好的幾百份便當將及時送到需要的人手中——這件小事讓我深刻感受到，走出自我小天地動手付出，內心得到的充實感遠比想像中深邃。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">踏出去、動手做，就是最好的溫柔；在給予的過程裡，自己也深深被溫暖了。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 4: 2026-10 上助教課解題會計題目 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-10" data-category="#專業與認證" data-tags="#專業與認證" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="會計助教解題課插畫">
+              <defs>
+                <linearGradient id="bg-ta" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FEFCE8" />
+                  <stop offset="100%" stop-color="#FEF08A" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-ta)"/>
+              <circle cx="200" cy="115" r="95" fill="#FDE68A" opacity="0.4"/>
+              
+              <!-- 背景星光與符號 -->
+              <polygon points="45,60 48,68 56,70 49,75 51,83 45,79 39,83 41,75 34,70 42,68" fill="#F59E0B"/>
+              <polygon points="350,55 353,63 361,65 354,70 356,78 350,74 344,78 346,70 339,65 347,63" fill="#F59E0B"/>
+              <polygon points="60,170 62,175 67,176 63,180 65,185 60,182 55,185 57,180 53,176 58,175" fill="#EAB308"/>
+              <polygon points="340,165 342,170 347,171 343,175 345,180 340,177 335,180 337,175 333,171 338,170" fill="#EAB308"/>
+
+              <!-- 中央黑板與可愛解題鉛筆助手徽章 -->
+              <g transform="translate(65, 30)">
+                <rect width="270" height="150" rx="14" fill="#B45309" stroke="#78350F" stroke-width="4"/>
+                <rect x="10" y="10" width="250" height="130" rx="9" fill="#15803D"/>
+                <text x="25" y="45" font-family="'Courier New', monospace, sans-serif" font-size="16" font-weight="bold" fill="#FEF08A">Assets = Liab. + Equity</text>
+                <text x="25" y="75" font-family="'Courier New', monospace, sans-serif" font-size="14" fill="#FFFFFF">Dr. Cash  $10,000</text>
+                <text x="45" y="100" font-family="'Courier New', monospace, sans-serif" font-size="14" fill="#BBF7D0">Cr. Revenue  $10,000</text>
+                <circle cx="220" cy="85" r="22" fill="#EF4444"/>
+                <path d="M208 85 L216 93 L232 75" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="25" y="125" width="70" height="5" rx="2" fill="#FDE047"/>
+                <rect x="105" y="125" width="40" height="5" rx="2" fill="#F472B6"/>
+              </g>
+
+              <!-- 裝飾小書本與眼鏡鉛筆博士 -->
+              <g transform="translate(255, 145)">
+                <rect x="0" y="22" width="75" height="14" rx="3" fill="#3B82F6"/>
+                <rect x="5" y="11" width="70" height="13" rx="3" fill="#EC4899"/>
+                <rect x="10" y="0" width="65" height="13" rx="3" fill="#10B981"/>
+                <text x="18" y="9" font-family="sans-serif" font-size="7" font-weight="bold" fill="#FFFFFF">ACCOUNTING</text>
+              </g>
+              <g transform="translate(75, 130)">
+                <rect x="10" y="10" width="24" height="60" rx="5" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+                <polygon points="10,10 22,-10 34,10" fill="#FDE68A" stroke="#B45309" stroke-width="2"/>
+                <circle cx="17" cy="28" r="4.5" stroke="#1F2937" stroke-width="1.8" fill="#FFF"/>
+                <circle cx="27" cy="28" r="4.5" stroke="#1F2937" stroke-width="1.8" fill="#FFF"/>
+                <circle cx="17" cy="28" r="1.5" fill="#1F2937"/>
+                <circle cx="27" cy="28" r="1.5" fill="#1F2937"/>
+                <path d="M19 38 Q22 42 25 38" stroke="#78350F" stroke-width="1.5" fill="none"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 10 月</span>
+              <span class="card-tag">#專業與認證</span>
+            </div>
+            <h3 class="card-title">會計助教解題課：用耐心陪學弟妹梳理邏輯與成長</h3>
+            <div class="card-description">
+              <p class="card-story">
+                每週站在黑板前，把當初自己也曾卡關的繁複分錄與準則，一題一題慢慢拆解給學弟妹看。看著台下眼神從茫然困惑到豁然開朗，那種「啊！原來是這樣！」的瞬間是最棒的回饋。在耐心備課與解惑的過程裡，自己也把專業觀念想得更加透徹紮實。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">能把深奧的邏輯說得清晰平易，才是真正的理解；傳遞知識，自己也在茁壯。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 5: 2026-09 參加三天兩夜宜蘭班遊 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-09" data-category="#校園生活" data-tags="#校園生活" tabindex="0">
+          <div class="card-image">
+            <img src="images/yilan-trip.jpg" alt="參加三天兩夜宜蘭班遊" loading="lazy" onerror="handleImageFallback(this, 'users', '校園生活')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 9 月</span>
+              <span class="card-tag">#校園生活</span>
+            </div>
+            <h3 class="card-title">同窗共遊：宜蘭三天兩夜的歡笑與青春回憶</h3>
+            <div class="card-description">
+              <p class="card-story">
+                平常各自埋首於論文與研究，這趟宜蘭班遊像是一顆清甜的解壓糖。青山、稻田與夜裡的圍坐暢聊，說了好多平時在研究室裡不會分享的真心話。彼此起鬨、開懷大笑的瞬間，把同窗情誼凝結得更加緊密。這幾天的相片，每隔一陣子翻看都還是滿滿的暖意。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">和好的人在一起、在喜歡的風景裡停下腳步，就是最純粹的幸福滋味。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 6: 2026-08 發現寶藏越式餐廳 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-08" data-category="#生活印記" data-tags="#生活印記" tabindex="0">
+          <div class="card-image">
+            <img src="images/vietnamese-restaurant.jpg" alt="發現寶藏越式餐廳" loading="lazy" onerror="handleImageFallback(this, 'bowl-rice', '生活印記')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 8 月</span>
+              <span class="card-tag">#生活印記</span>
+            </div>
+            <h3 class="card-title">巷弄裡的小驚喜：連續三個月報到的越式寶藏小館</h3>
+            <div class="card-description">
+              <p class="card-story">
+                某個午後在住處周邊尋覓午餐，無意間拐進安靜小巷，踏入這家樸實的小餐館。第一口清甜牛肉河粉配上酥脆春捲，立刻被驚艷。老闆總是掛著親切笑容熱情招呼，不知不覺連續三個月每週準時報到，成為忙碌日常中舒緩疲憊、補充元氣的專屬避風港。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">巷弄裡的好店像懂你的老朋友，讓平凡的生活有了值得期待的儀式感。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 7: 2026-08 近年來首次燙頭髮 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-08" data-category="#生活印記" data-tags="#生活印記" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="首次燙頭髮插畫">
+              <defs>
+                <linearGradient id="bg-hair" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFF1F2" />
+                  <stop offset="100%" stop-color="#FCE7F3" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-hair)"/>
+              <circle cx="200" cy="115" r="95" fill="#FBCFE8" opacity="0.35"/>
+              <circle cx="80" cy="70" r="26" fill="#FBCFE8" opacity="0.4"/>
+              <circle cx="330" cy="160" r="34" fill="#FDE047" opacity="0.25"/>
+              <polygon points="55,140 57,146 63,147 58,151 60,157 55,153 50,157 52,151 47,147 53,146" fill="#F43F5E"/>
+              <polygon points="345,65 347,71 353,72 348,76 350,82 345,78 340,82 342,76 337,72 343,71" fill="#F59E0B"/>
+              
+              <!-- 核心造型徽章：沙龍手鏡、波浪捲髮與蝴蝶結裝飾 -->
+              <g transform="translate(135, 38)">
+                <circle cx="65" cy="75" r="58" fill="#FFFFFF" opacity="0.7"/>
+                <circle cx="65" cy="75" r="52" fill="#FFF5F7" stroke="#F472B6" stroke-width="2.5"/>
+                
+                <!-- 蓬鬆捲髮女孩輪廓 -->
+                <path d="M25 60 Q5 30 35 15 Q65 -5 85 5 Q115 -8 135 18 Q165 40 140 75 Q155 105 135 130 Q110 145 90 135 Q60 145 40 125 Q20 100 25 60 Z" fill="#78350F" transform="scale(0.8) translate(0, 0)"/>
+                <ellipse cx="68" cy="72" rx="26" ry="24" fill="#FED7AA"/>
+                <path d="M44 60 Q56 48 70 58 Q84 48 96 60 Q94 48 70 44 Q46 48 44 60 Z" fill="#78350F"/>
+                <circle cx="58" cy="68" r="2.5" fill="#451A03"/>
+                <circle cx="78" cy="68" r="2.5" fill="#451A03"/>
+                <path d="M64 77 Q68 81 72 77" stroke="#451A03" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <ellipse cx="54" cy="74" rx="4" ry="2.5" fill="#FB7185" opacity="0.6"/>
+                <ellipse cx="82" cy="74" rx="4" ry="2.5" fill="#FB7185" opacity="0.6"/>
+                <circle cx="92" cy="46" r="6" fill="#F43F5E"/>
+                <circle cx="92" cy="46" r="2.5" fill="#FEF08A"/>
+              </g>
+
+              <!-- 沙龍造型剪刀與閃耀鏡子 -->
+              <g transform="translate(48, 105)">
+                <path d="M15 25 L40 15 Q48 12 48 22 L48 30 Q48 38 40 36 L15 28 Z" fill="#F472B6"/>
+                <rect x="20" y="26" width="8" height="20" rx="2" fill="#E11D48"/>
+              </g>
+              <g transform="translate(290, 75)">
+                <circle cx="25" cy="25" r="18" fill="#FFFFFF" stroke="#FB7185" stroke-width="2.5"/>
+                <circle cx="25" cy="25" r="13" fill="#E0F2FE"/>
+                <rect x="22" y="42" width="6" height="18" rx="2" fill="#FB7185"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 8 月</span>
+              <span class="card-tag">#生活印記</span>
+            </div>
+            <h3 class="card-title">煥然一新：近年首次挑戰燙髮造型的小小蛻變</h3>
+            <div class="card-description">
+              <p class="card-story">
+                好幾年都維持同樣的直髮，某天對著鏡子突然閃過念頭——換個樣子看看吧！預約了沙龍、與設計師仔細討論適合的捲度，坐在椅子上的等待既期待又有些許忐忑。走出沙龍那一刻，髮絲帶著自然的弧度隨風輕揚，整個人感覺輕盈了起來。勇於改變，原來只要一個跨出舒適圈的小嘗試。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">小小的外在改變，往往能帶給內在意想不到的輕盈感與自信活力。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 8: 2026-08 第一次買盲盒 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-08" data-category="#生活印記" data-tags="#生活印記" tabindex="0">
+          <div class="card-image">
+            <img src="images/blind-box.jpg" alt="第一次買盲盒" loading="lazy" onerror="handleImageFallback(this, 'box-open', '生活印記')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 8 月</span>
+              <span class="card-tag">#生活印記</span>
+            </div>
+            <h3 class="card-title">人生第一次拆盲盒：遇見喜愛角色的童心驚喜</h3>
+            <div class="card-description">
+              <p class="card-story">
+                逛街時被貨架上一字排開、做工精巧的公仔深深吸引，同行朋友笑著說「抽一盒試試手氣吧！」挑選時拿在手上輕晃揣測，撕開包裝的一剎那心跳悄悄加速——竟然幸運開出心心念念的經典款！將小巧的公仔端正擺在書桌前，每一次抬頭看到，嘴角都會忍不住泛起微笑。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">保有一顆對未知驚喜好奇的童心，日常生活就會多出許多微笑的理由。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 9: 2026-07 人生第一次實習 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-07" data-category="#職涯與實習" data-tags="#職涯與實習" tabindex="0">
+          <div class="card-image">
+            <img src="images/first-internship.jpg" alt="人生第一次實習" loading="lazy" onerror="handleImageFallback(this, 'briefcase', '職涯與實習')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 7 月</span>
+              <span class="card-tag">#職涯與實習</span>
+            </div>
+            <h3 class="card-title">走出象牙塔：人生第一份實習的真實探索與淬煉</h3>
+            <div class="card-description">
+              <p class="card-story">
+                第一天踏入真實的辦公室，軟體、數據流程到跨部門溝通，一切都與校園課堂大不相同。一開始難免戒慎恐懼，但慢慢體會到：主動提問、嚴謹覆核每一個細節數據，前輩們都很樂意傾囊相授。那個盛夏學到的，不僅是商業分析技巧，更是如何在團隊裡找到自己的專業定位。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">跨入實務現場才知道自己的優勢與盲點，這份自我清晰感彌足珍貴。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 10: 2026-05 第一次到訪雲南 (實體照片) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-05" data-category="#生活印記" data-tags="#生活印記" tabindex="0">
+          <div class="card-image">
+            <img src="images/yunnan-trip.jpg" alt="第一次到訪雲南" loading="lazy" onerror="handleImageFallback(this, 'mountain-sun', '生活印記')">
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 5 月</span>
+              <span class="card-tag">#生活印記</span>
+            </div>
+            <h3 class="card-title">高山峽谷間的壯遊：初訪雲南品味在地生活與浩瀚勝景</h3>
+            <div class="card-description">
+              <p class="card-story">
+                第一次踏上高海拔地域，眼前的壯闊山河遠比想像更震撼人心。徒步穿過深邃峽谷，在熱鬧的晨市裡嚐一碗道地滾燙的過橋米線，和少數民族居民聊著純樸的日常。高山峻嶺拓展了視野的邊界，也讓心胸變得開闊柔軟，成為一生難以磨滅的旅途印記。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">身處高山峻嶺方知天地廣闊；每一次跨界出走，都是重新認識自我的契機。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 11: 2026-04 通過永續發展基礎能力測驗 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-04" data-category="#專業與認證" data-tags="#專業與認證" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="永續發展能力測驗插畫">
+              <defs>
+                <linearGradient id="bg-green" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#F0FDF4" />
+                  <stop offset="100%" stop-color="#DCFCE7" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-green)"/>
+              <circle cx="200" cy="115" r="95" fill="#BBF7D0" opacity="0.45"/>
+              <path d="M40 70 Q60 50 80 65 Q70 85 40 70 Z" fill="#86EFAC" opacity="0.6"/>
+              <path d="M330 60 Q355 45 365 70 Q340 85 330 60 Z" fill="#86EFAC" opacity="0.5"/>
+              <polygon points="100,40 102,46 108,48 102,50 100,56 98,50 92,48 98,46" fill="#FACC15"/>
+              <polygon points="310,35 312,40 317,41 312,43 310,48 308,43 303,41 308,40" fill="#FACC15"/>
+              
+              <!-- 可愛微笑綠色地球與萌芽樹苗徽章 -->
+              <g transform="translate(140, 45)">
+                <circle cx="60" cy="65" r="54" fill="#67E8F9" stroke="#0891B2" stroke-width="3"/>
+                <path d="M35 35 Q50 30 55 45 Q60 55 45 65 Q30 60 35 35 Z" fill="#4ADE80"/>
+                <path d="M70 45 Q90 40 100 55 Q95 75 75 70 Q65 60 70 45 Z" fill="#4ADE80"/>
+                <path d="M40 85 Q60 80 75 95 Q60 115 45 105 Z" fill="#4ADE80"/>
+                <ellipse cx="50" cy="62" rx="4" ry="5" fill="#155E75"/>
+                <ellipse cx="70" cy="62" rx="4" ry="5" fill="#155E75"/>
+                <circle cx="51" cy="60" r="1.5" fill="#FFFFFF"/>
+                <circle cx="71" cy="60" r="1.5" fill="#FFFFFF"/>
+                <circle cx="43" cy="69" r="4" fill="#F472B6" opacity="0.6"/>
+                <circle cx="77" cy="69" r="4" fill="#F472B6" opacity="0.6"/>
+                <path d="M55 70 Q60 76 65 70" stroke="#155E75" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M60 9 Q60 2 60 -5" stroke="#15803D" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M60 -5 Q50 -18 38 -10 Q42 5 60 -3 Z" fill="#22C55E"/>
+                <path d="M60 -5 Q70 -20 82 -12 Q78 4 60 -3 Z" fill="#16A34A"/>
+              </g>
+
+              <!-- ESG 綠領合格證書獎牌 -->
+              <g transform="translate(255, 115)">
+                <rect width="95" height="70" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
+                <rect x="12" y="14" width="70" height="5" rx="2" fill="#86EFAC"/>
+                <rect x="12" y="24" width="55" height="5" rx="2" fill="#BBF7D0"/>
+                <rect x="12" y="34" width="60" height="5" rx="2" fill="#DCFCE7"/>
+                <circle cx="68" cy="50" r="12" fill="#EAB308"/>
+                <path d="M64 50 L67 53 L73 47" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <text x="14" y="55" font-family="sans-serif" font-size="10" font-weight="bold" fill="#15803D">ESG PASS</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 4 月</span>
+              <span class="card-tag">#專業與認證</span>
+            </div>
+            <h3 class="card-title">擁抱綠色浪潮：順利通過永續發展基礎能力測驗</h3>
+            <div class="card-description">
+              <p class="card-story">
+                永續議題與 ESG 逐漸成為現代各行各業的共同語言，決定趁早打穩基礎。從碳盤查指標到企業社會責任框架，每一章節都在拓展過去未曾觸及的思維疆域。研讀準備的過程像是在腦海中點亮一盞新的燈，成績揭曉順利通關時，為自己掌握跨界綠領素養感到踏實。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">主動跨足陌生領域，視野就會更寬闊，也為未來開創更多元的可能性。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- === 卡片 12: 2026-02 考到汽車駕照 (簡約質感向量徽章 SVG) === -->
+        <article class="milestone-card" data-year="2026" data-date="2026-02" data-category="#個人成長" data-tags="#個人成長" tabindex="0">
+          <div class="card-image">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="cartoon-svg" role="img" aria-label="考到汽車駕照插畫">
+              <defs>
+                <linearGradient id="bg-license" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFF5EC" />
+                  <stop offset="100%" stop-color="#FFE0CC" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="240" fill="url(#bg-license)"/>
+              <circle cx="60" cy="50" r="26" fill="#FDE047" opacity="0.8"/>
+              <rect y="195" width="400" height="45" fill="#E2D9CC" rx="0"/>
+              <line x1="20" y1="215" x2="70" y2="215" stroke="#FFF" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="round"/>
+              <line x1="110" y1="215" x2="290" y2="215" stroke="#FFF" stroke-width="4" stroke-dasharray="16 16" stroke-linecap="round"/>
+              <line x1="330" y1="215" x2="380" y2="215" stroke="#FFF" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="round"/>
+              
+              <!-- 暖陽下前行的可愛汽車 -->
+              <g transform="translate(65, 95)">
+                <ellipse cx="130" cy="98" rx="100" ry="8" fill="#C2410C" opacity="0.18"/>
+                <path d="M40 75 Q45 42 75 35 L145 35 Q180 38 195 65 L215 70 Q225 75 225 85 L225 90 Q225 96 215 96 L35 96 Q25 96 25 88 L25 80 Q25 75 40 75 Z" fill="#FF7849"/>
+                <path d="M78 40 L140 40 Q168 42 180 62 L80 62 Q72 58 78 40 Z" fill="#E0F2FE" stroke="#38BDF8" stroke-width="2"/>
+                <line x1="125" y1="40" x2="125" y2="62" stroke="#BAE6FD" stroke-width="2"/>
+                <circle cx="218" cy="80" r="7" fill="#FEF08A" stroke="#F59E0B" stroke-width="1.5"/>
+                <circle cx="70" cy="95" r="18" fill="#374151"/>
+                <circle cx="70" cy="95" r="8" fill="#E5E7EB"/>
+                <circle cx="175" cy="95" r="18" fill="#374151"/>
+                <circle cx="175" cy="95" r="8" fill="#E5E7EB"/>
+              </g>
+
+              <!-- 駕駛合格執照卡片徽章 -->
+              <g transform="translate(250, 30)">
+                <rect width="115" height="75" rx="10" fill="#FFFFFF" stroke="#FB923C" stroke-width="3"/>
+                <rect x="10" y="10" width="30" height="36" rx="4" fill="#FED7AA"/>
+                <circle cx="25" cy="24" r="7" fill="#EA580C"/>
+                <path d="M16 42 Q25 35 34 42 Z" fill="#EA580C"/>
+                <rect x="48" y="14" width="50" height="5" rx="2" fill="#FDBA74"/>
+                <rect x="48" y="24" width="40" height="5" rx="2" fill="#FDBA74"/>
+                <rect x="48" y="34" width="46" height="5" rx="2" fill="#FED7AA"/>
+                <circle cx="88" cy="55" r="13" fill="#22C55E"/>
+                <path d="M82 55 L86 59 L94 51" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <polygon points="190,40 193,48 201,51 193,54 190,62 187,54 179,51 187,48" fill="#F59E0B"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-date"><i class="fa-regular fa-calendar"></i> 2026 年 2 月</span>
+              <span class="card-tag">#個人成長</span>
+            </div>
+            <h3 class="card-title">解鎖行動自由：勇敢面對路考，順利拿到汽車駕照</h3>
+            <div class="card-description">
+              <p class="card-story">
+                報名駕訓班前猶豫了很久，總覺得「實際上路」是個令人忐忑的心理關卡。但跟著教練一次次反覆練習倒車入庫、S型轉彎與路口起步，心中的緊張漸漸轉化為熟稔的節奏。路考當天緊握方向盤、專注看著前方，順利領到印著自己名字的駕照那一刻，感受到的是真真切切的獨立與自由。
+              </p>
+            </div>
+            <div class="card-takeaway">
+              <div class="takeaway-header">
+                <span class="takeaway-emoji">✨</span>
+                <span class="takeaway-label">生活亮點</span>
+              </div>
+              <p class="takeaway-text">面對陌生不用害怕，只要反覆練習，畏懼終將化為從容的掌控力。</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- 空搜尋狀態提示 -->
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <div class="empty-icon"><i class="fa-solid fa-compass"></i></div>
+        <h3>找不到符合條件的成就卡片</h3>
+        <p>請嘗試更換篩選年份、主題標籤，或清除搜尋欄關鍵字。</p>
+        <button class="btn-primary" onclick="resetAllFilters()">查看所有突破卡片</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Detailed Modal Popup (詳細彈窗) -->
+  <div id="card-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close-btn" aria-label="關閉詳細視窗">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-body" id="modal-body-content">
+        <!-- 動態注入選中卡片之內容 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (頁腳) -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-title">2026個人里程碑展覽館 &copy; 2026</p>
+      <p class="footer-desc">
+        遵循 <a href="AGENTS.md" target="_blank">AGENTS.md</a> 規範建立・支援 AI Agent 結構化自動擴充與長期維護
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="js/main.js"></script>
 </body>
 </html>
