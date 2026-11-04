@@ -1,0 +1,894 @@
+/* ==========================================================================
+   AGENTS.md 規範設計系統 - 個人生涯重大突破與成就博物館
+   【溫馨明亮風格版 Warm & Bright Cozy Aesthetic】
+   ========================================================================== */
+
+/* 1. 色彩與主題變數 (全面採用暖色系、暖米白背景與大圓角) */
+:root {
+  /* 預設：溫馨明亮暖陽模式 (Warm Sunshine) */
+  --bg-primary: #FBF9F5;              /* 暖米白底色 */
+  --bg-secondary: #F4EFE6;            /* 溫暖極淺暖灰 */
+  --bg-card: #FFFFFF;                 /* 純白卡片 */
+  --bg-card-hover: #FFFFFF;
+  --bg-glass: rgba(251, 249, 245, 0.94);
+  
+  --text-primary: #3A3330;            /* 深暖咖啡色，溫潤不生硬 */
+  --text-secondary: #6E655F;          /* 暖灰咖啡色 */
+  --text-muted: #9C9289;              /* 柔和淡褐 */
+  
+  /* 暖色系強調色 */
+  --accent-primary: #FF9E64;          /* 溫暖奶油橘 */
+  --accent-secondary: #F6C177;        /* 暖陽黃 */
+  --accent-sage: #76A973;             /* 柔和草綠色 */
+  --accent-coral: #EB6F92;            /* 溫暖珊瑚粉 */
+  --accent-gradient: linear-gradient(135deg, #FF9E64 0%, #FFB580 50%, #F6C177 100%);
+  --accent-gradient-soft: linear-gradient(135deg, #FFF3E6 0%, #FFF9F0 100%);
+  
+  --border-color: #EFE8DE;            /* 柔和淡米色邊框 */
+  --border-subtle: #F3ECE1;
+  --border-focus: #FF9E64;
+  
+  /* 生活亮點與便籤標籤柔和暖色系 */
+  --highlight-bg: #FFF8EE;            /* 生活亮點柔黃底色 */
+  --highlight-border: #FCEFD8;        /* 生活亮點溫暖細邊 */
+  --highlight-title: #B5771A;         /* 生活亮點標題暖橘棕 */
+  --highlight-text: #66584F;          /* 生活亮點內文溫和深灰 */
+
+  /* 分類標籤色彩 */
+  --tag-bg: #FFF3E8;
+  --tag-color: #D96020;
+  --tag-hover: #FED7AA;
+  
+  /* 大圓角與軟綿綿柔和陰影 - 依據 AGENTS.md 溫馨明亮版 16px 規範 */
+  --card-radius: 16px;
+  --pill-radius: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(180, 140, 100, 0.06);
+  --shadow-md: 0 4px 20px rgba(180, 140, 100, 0.08);
+  --shadow-lg: 0 12px 32px rgba(180, 140, 100, 0.14);
+  --shadow-glow: 0 0 20px rgba(255, 158, 100, 0.22);
+  
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 恬淡夜間暖調模式 (Cozy Sunset / Evening) */
+[data-theme="dark"] {
+  --bg-primary: #1F1B18;              /* 深暖木炭棕黑 */
+  --bg-secondary: #282420;            /* 暖咖啡黑 */
+  --bg-card: #2C2622;                 /* 暖木質卡片 */
+  --bg-card-hover: #342E29;
+  --bg-glass: rgba(31, 27, 24, 0.92);
+  
+  --text-primary: #F7EFE9;            /* 柔暖乳白 */
+  --text-secondary: #C8BEB6;          /* 暖米灰 */
+  --text-muted: #8E8278;
+  
+  --border-color: rgba(255, 230, 210, 0.1);
+  --border-subtle: rgba(255, 230, 210, 0.06);
+  --border-focus: #FF9E64;
+
+  --highlight-bg: rgba(246, 193, 119, 0.12);
+  --highlight-border: rgba(246, 193, 119, 0.22);
+  --highlight-title: #F6C177;
+  --highlight-text: #E5DDD5;
+
+  --tag-bg: rgba(255, 158, 100, 0.18);
+  --tag-color: #FFB580;
+  --tag-hover: rgba(255, 158, 100, 0.3);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* 2. 基本重設與通用排版 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 3. 頂部導航欄 (Site Header) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(255, 158, 100, 0.35);
+  transition: var(--transition);
+}
+
+.brand:hover .brand-icon {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.brand-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--pill-radius);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+  background: var(--bg-secondary);
+}
+
+.btn-icon {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  border-color: var(--accent-primary);
+  transform: scale(1.08);
+}
+
+/* 4. 主視覺區塊 (Hero Section) */
+.hero-section {
+  padding: 60px 0 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 158, 100, 0.08) 0%, transparent 70%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF3E8;
+  color: #D96020;
+  padding: 8px 20px;
+  border-radius: var(--pill-radius);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 158, 100, 0.25);
+}
+
+[data-theme="dark"] .hero-badge {
+  background: rgba(255, 158, 100, 0.16);
+  color: #FFB580;
+  border-color: rgba(255, 158, 100, 0.3);
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #3A3330 0%, #D96020 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.25;
+}
+
+[data-theme="dark"] .hero-title {
+  background: linear-gradient(135deg, #FFF0E5 0%, #FFB580 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-motto {
+  font-size: 1.12rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.75;
+  font-weight: 500;
+}
+
+/* 成就統計計數器 (Stats Grid - 3欄等寬居中美化) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 10px auto 0;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius); /* 16px 大圓角 */
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--accent-gradient-soft);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(255, 158, 100, 0.12);
+}
+
+[data-theme="dark"] .stat-icon {
+  background: rgba(255, 158, 100, 0.18);
+  color: #FFB580;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* 5. 篩選與搜尋列 (Filter & Search Bar) */
+.filter-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  padding: 24px 28px;
+  margin: 32px 0 44px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 44px 14px 48px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--pill-radius);
+  color: var(--text-primary);
+  font-size: 0.96rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px rgba(255, 158, 100, 0.18);
+  background: var(--bg-card);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.clear-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+}
+
+.filter-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-group-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 90px;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 18px;
+  border-radius: var(--pill-radius);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(255, 158, 100, 0.35);
+}
+
+.filter-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.reset-link {
+  background: transparent;
+  border: none;
+  color: var(--accent-primary);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.reset-link:hover {
+  text-decoration: underline;
+  color: #D96020;
+}
+
+/* 6. 卡片展示網格 (Milestone Cards Grid) */
+.milestone-cards-wrapper {
+  margin-bottom: 60px;
+}
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 28px;
+}
+
+.milestone-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius); /* 16px 大圓角 */
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.milestone-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 158, 100, 0.45);
+}
+
+.milestone-card:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+/* 卡片圖片與簡約向量徽章區塊 */
+.card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.milestone-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* 簡約質感向量徽章 SVG 風格（對齊圖二左側樣式） */
+.cartoon-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.milestone-card:hover .cartoon-svg {
+  transform: scale(1.04);
+}
+
+/* 卡片內部內容 (Card Content) */
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-date {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--pill-radius);
+  transition: var(--transition);
+}
+
+.milestone-card:hover .card-tag {
+  background: var(--tag-hover);
+}
+
+.card-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+/* 生活隨筆自然短文 (去 STAR 化的生活感隨筆) */
+.card-description {
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-story {
+  font-size: 0.94rem;
+  line-height: 1.82;
+  color: var(--text-secondary);
+  font-weight: 450;
+  text-align: justify;
+}
+
+/* 7. ✨ 生活亮點 (柔和溫馨便籤區塊) */
+.card-takeaway {
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: auto;
+  transition: var(--transition);
+}
+
+.takeaway-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--highlight-title);
+  font-size: 0.84rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.takeaway-emoji {
+  font-size: 0.95rem;
+}
+
+.takeaway-label {
+  letter-spacing: 0.02em;
+}
+
+.takeaway-text {
+  font-size: 0.88rem;
+  line-height: 1.68;
+  color: var(--highlight-text);
+  font-weight: 500;
+}
+
+/* 8. 空搜尋狀態提示 (Empty State) */
+.empty-state {
+  text-align: center;
+  padding: 70px 20px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--card-radius);
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.empty-state h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 11px 26px;
+  border-radius: var(--pill-radius);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 158, 100, 0.35);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: #E67332;
+  box-shadow: 0 6px 18px rgba(255, 158, 100, 0.45);
+  transform: translateY(-2px);
+}
+
+/* 9. 詳細視窗彈窗 (Modal Popup) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 38, 34, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.94);
+  transition: var(--transition);
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: #FF6B6B;
+  color: #FFFFFF;
+  border-color: #FF6B6B;
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-hero-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(180, 140, 100, 0.1);
+}
+
+.modal-hero-svg {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(180, 140, 100, 0.1);
+}
+
+.modal-hero-svg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 備援圖示容器 */
+.card-image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-gradient-soft);
+  color: var(--accent-primary);
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.card-image-fallback i {
+  font-size: 2.2rem;
+}
+
+/* 10. 頁腳 (Site Footer) */
+.site-footer {
+  margin-top: auto;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 36px 0;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.footer-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.footer-desc a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-desc a:hover {
+  text-decoration: underline;
+  color: #D96020;
+}
+
+/* 11. 響應式佈局 (Responsive Layout) */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  
+  .milestone-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-section {
+    padding: 18px;
+  }
+  
+  .hero-section {
+    padding: 44px 0 28px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}
